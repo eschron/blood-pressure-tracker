@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete "sign-out", to: "sessions#destroy"
   get "sign-up", to: "users#new", as: :sign_up
 
+  resources :home, only: [:index]
   resources :account_confirmations, only: [:edit]
   resources :password_resets, only: [:create, :edit, :new, :update]
   resources :users, only: [:create, :edit, :update]

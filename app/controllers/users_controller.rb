@@ -1,15 +1,15 @@
 class UsersController < ApplicationController
 
-  prepend_before_action :check_captcha, only: :create
   before_action :authenticate_user!, only: [:edit, :update]
   before_action :prevent_duplicate_sign_in, only: [:create, :new]
 
   def create
     @user = User.new(user_params)
     if @user.save
-      @user.send_confirmation_email
-      flash[:success] = "Registration successful. Please confirm your email to activate your account."
-      redirect_to root_path
+      # @user.send_confirmation_email
+      # flash[:success] = "Registration successful."
+      sign_in(@user)
+      redirect_to home_index_path
     else
       flash.now[:alert] = "There was a problem with your registration."
       render :new
@@ -60,13 +60,6 @@ class UsersController < ApplicationController
     unless user == current_user
       flash[:alert] = "You are not authorized for this record."
       redirect_to root_path
-    end
-  end
-
-  def check_captcha
-    unless verify_recaptcha
-      self.resource = resource_class.new sign_up_params
-      respond_with_navigational(resource) { render :new }
     end
   end
 
