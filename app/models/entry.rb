@@ -1,5 +1,5 @@
 class Entry < ApplicationRecord
-  validates :times, presence: true
+  validates :time, presence: true
   validates :systolic, presence: true
   validates :diastolic, presence: true
 
