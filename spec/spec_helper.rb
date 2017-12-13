@@ -96,6 +96,6 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
-# config.include AuthenticationHelpers::Controller, tpye: :controller
-#  config.include AuthenticationHelpers::Feature, tpye: :feature
+ #  config.include AuthenticationHelpers::Controller, type: :controller
+ # config.include AuthenticationHelpers::Feature, type: :feature
 end
