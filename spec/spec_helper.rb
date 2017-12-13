@@ -42,6 +42,9 @@ RSpec.configure do |config|
   # compatibility in RSpec 3). It causes shared context metadata to be
   # inherited by the metadata hash of host groups and examples, rather than
   # triggering implicit auto-inclusion in groups with matching metadata.
+  config.filter_run focus: true
+  config.run_all_when_everything_filtered = true
+  config.order = :random
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
 # The settings below are suggested to provide a good initial experience
@@ -93,4 +96,6 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+ #  config.include AuthenticationHelpers::Controller, type: :controller
+ # config.include AuthenticationHelpers::Feature, type: :feature
 end

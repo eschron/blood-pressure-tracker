@@ -1,5 +1,8 @@
 {
   "name": "blood-pressure-tracker",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^3.10.0"
+  }
 }
