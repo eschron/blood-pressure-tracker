@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root "sessions#new"
 
-  get "sign-in", to: "sessions#new", as: :sign_in
+  # get "sign-in", to: "sessions#new", as: :sign_in
   post "sign-in", to: "sessions#create"
   delete "sign-out", to: "sessions#destroy"
   get "sign-out", to: "sessions#destroy"

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :user_signed_in?
+  helper_method :current_user, :user_signed_in?, :authenticate_user!, :sign_in
   protect_from_forgery with: :exception
 
   def authenticate_user!
@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
   def prevent_duplicate_sign_in
     if user_signed_in?
       flash[:alert] = "You are already signed in."
-      redirect_to root_path
+      redirect_to home_index_path
     end
   end
 

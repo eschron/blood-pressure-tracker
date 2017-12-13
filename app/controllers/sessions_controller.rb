@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
   before_action :prevent_duplicate_sign_in, only: [:create, :new]
 
   def create
-    binding.pry
     if params[:session][:login].match(User::EMAIL_REGEXP)
       user = User.find_by(email: params[:session][:login].downcase)
     else
