@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 20171213191601) do
   enable_extension "plpgsql"
 
   create_table "entries", force: :cascade do |t|
-    t.datetime "time"
-    t.integer "systolic"
-    t.integer "diastolic"
+    t.datetime "time", null: false
+    t.integer "systolic", null: false
+    t.integer "diastolic", null: false
     t.string "notes"
     t.bigint "user_id"
     t.datetime "created_at", null: false
