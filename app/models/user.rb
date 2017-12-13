@@ -15,6 +15,8 @@ class User < ApplicationRecord
   validates_presence_of :email, :first_name, :handle, :last_name
   validates_uniqueness_of :email, :handle, :universally_unique_id
 
+  has_many :entries
+
   def authenticated?(attribute, token)
     digest = self.send("#{attribute}_digest")
     return false if digest.nil?
